@@ -41,6 +41,7 @@ install(PROGRAMS
     scripts/check_delay.py
     scripts/check_drop.py
     scripts/cut.py
+    scripts/cut_multi.py
     scripts/extract_topics.py
     scripts/gps_to_std_gt.py
     scripts/image_sequence_publisher.py
