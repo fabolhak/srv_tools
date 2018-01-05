@@ -77,8 +77,18 @@ def cut_multi(filename):
 if __name__ == "__main__":
   rospy.init_node('cut_multi')
   parser = argparse.ArgumentParser(
-      description='Cuts out a section from multiple input bagfiles and writes it to output bagfiles. '
-                  'Needs a .yaml file with the cutting details.')
+      formatter_class=argparse.RawDescriptionHelpFormatter,
+      description='Cuts out a section from multiple input bagfiles and writes it to output bagfiles.\n'
+                  'Needs a .yaml file with the cutting details. The yaml file should look like:\n\n'
+                  '  source: <source_bag_1>\n'
+                  '  dest:   <output_bag_1>\n'
+                  '  start:  <unix_start_time_1>\n'
+                  '  end:    <unix_end_time_1>\n'
+                  '  ---\n'
+                  '  source: <source_bag_2>\n'
+                  '  dest:   <output_bag_2>\n'
+                  '  start:  <unix_start_time_2>\n'
+                  '  end:    <unix_end_time_2>\n')
   parser.add_argument('--file', help='.yaml file with all cutting information', required=True)
   args = parser.parse_args()
   try:
